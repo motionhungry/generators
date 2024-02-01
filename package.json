@@ -1,0 +1,26 @@
+{
+  "name": "@motionhungry/generators",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "./scripts/build.sh",
+    "generate": "./dist/index.js generate"
+  },
+  "bin": {
+    "generate": "./dist/index.js generate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tsconfig/strictest": "^2.0.2",
+    "@types/node": "^20.11.15",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "commander": "^11.1.0",
+    "execa": "^8.0.1"
+  }
+}
