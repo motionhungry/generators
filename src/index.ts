@@ -4,7 +4,7 @@ import fs from 'fs';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import { program } from 'commander';
-import { $, execa, ExecaReturnValue } from 'execa';
+import { $, ExecaReturnValue } from 'execa';
 
 type PackageManager = 'bun' | 'npm' | 'pnpm' | 'yarn';
 
@@ -65,9 +65,7 @@ function prettier() {
 }
 
 async function semanticRelease() {
-  const manager = getPackageManager();
   await installPackages(['semantic-release'], true);
-  await execa(`${manager} semantic-release`);
   await $`mkdir -p .github`;
   copyTemplateFile('semantic-release/', '.github/');
 }
