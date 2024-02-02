@@ -2,7 +2,10 @@
   "name": "@motionhungry/generators",
   "version": "0.2.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "scripts": {
     "build": "./scripts/build.sh",
@@ -16,7 +19,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@motionhungry/style-policy": "^1.0.1",
     "@semantic-release/commit-analyzer": "^11.1.0",
