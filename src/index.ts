@@ -18,7 +18,7 @@ const copyTemplateFile = async (
   console.log(`Adding ${destFile}...`);
   const source = path.join(__dirname, `templates/${srcFile}`);
   const dest = path.join(process.cwd(), destFile);
-  return await $`cp -aR ${source} ${dest}`;
+  return await $`cp -rp ${source} ${dest}`;
 };
 
 const fileExists = (filename: string) => {
@@ -65,8 +65,9 @@ function prettier() {
 }
 
 async function semanticRelease() {
-  await installPackages(['semantic-release'], true);
-  copyTemplateFile('semantic-release/', '.github/');
+  await installPackages(['semantic-release', 'semantic-release/npm'], true);
+  copyTemplateFile('semantic-release/*', '.');
+  copyTemplateFile('semantic-release/.*', '.');
 }
 
 function strapi() {
