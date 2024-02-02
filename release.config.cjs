@@ -6,7 +6,7 @@ module.exports = {
     'main',
     {
       name: 'next',
-      prerelease: 'true',
+      prerelease: true,
     },
   ],
   tagFormat: '${version}',
