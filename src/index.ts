@@ -76,7 +76,7 @@ function strapi() {
   prettier();
 }
 
-const itemMap = {
+const templates = {
   prettier,
   'semantic-release': semanticRelease,
   strapi,
@@ -84,17 +84,17 @@ const itemMap = {
 
 program
   .command('generate')
-  .argument('<item>', 'item that you want to generate')
-  .action((item: keyof typeof itemMap) => {
-    const func = itemMap[item];
-    if (func) {
-      func();
+  .argument('<template>', 'the template to generate')
+  .action((template: keyof typeof templates) => {
+    const generate = templates[template];
+    if (generate) {
+      generate();
     }
   });
 
 program.command('list').action(() => {
-  Object.keys(itemMap).forEach((item) => {
-    console.log(item);
+  Object.keys(templates).forEach((template) => {
+    console.log(template);
   });
 });
 
