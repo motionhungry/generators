@@ -6,10 +6,12 @@
   "type": "module",
   "scripts": {
     "build": "./scripts/build.sh",
-    "generate": "./dist/index.js generate"
+    "generate": "./dist/index.js generate",
+    "list": "./dist/index.js list"
   },
   "bin": {
-    "generate": "./dist/index.js generate"
+    "generate": "./dist/index.js generate",
+    "list": "./dist/index.js list"
   },
   "keywords": [],
   "author": "",
