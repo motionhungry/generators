@@ -65,8 +65,9 @@ function prettier() {
 }
 
 async function semanticRelease() {
+  const manager = getPackageManager();
   await installPackages(['semantic-release'], true);
-  await execa('npx semantic-release');
+  await execa(`${manager} semantic-release`);
   await $`mkdir -p .github`;
   copyTemplateFile('semantic-release/', '.github/');
 }
