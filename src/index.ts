@@ -65,7 +65,16 @@ function prettier() {
 }
 
 async function semanticRelease() {
-  await installPackages(['semantic-release', 'semantic-release/npm'], true);
+  await installPackages(
+    [
+      'semantic-release',
+      '@semantic-release/commit-analyzer',
+      '@semantic-release/github',
+      'semantic-release/npm',
+      '@semantic-release/release-notes-generator',
+    ],
+    true,
+  );
   copyTemplateFile('semantic-release/*', '.');
   copyTemplateFile('semantic-release/.*', '.');
 }
