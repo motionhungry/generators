@@ -18,7 +18,7 @@ const copyTemplateFile = async (
   console.log(`Adding ${destFile}...`);
   const source = path.join(__dirname, `templates/${srcFile}`);
   const dest = path.join(process.cwd(), destFile);
-  return await $`cp ${source} ${dest}`;
+  return await $`cp -R ${source} ${dest}`;
 };
 
 const fileExists = (filename: string) => {
@@ -64,6 +64,13 @@ function prettier() {
   installPackages(['@motionhungry/style-policy'], true);
 }
 
+function semanticRelease() {
+  installPackages(['semantic-release'], true);
+  $`npx semantic-release`;
+  $`mkdir -p .github`;
+  copyTemplateFile('semantic-release/', '.github/');
+}
+
 function strapi() {
   copyTemplateFile('strapi/Dockerfile', 'Dockerfile');
   prettier();
@@ -71,6 +78,7 @@ function strapi() {
 
 const itemMap = {
   prettier,
+  'semantic-release': semanticRelease,
   strapi,
 };
 
