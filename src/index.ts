@@ -4,7 +4,7 @@ import fs from 'fs';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import { program } from 'commander';
-import { $, ExecaReturnValue } from 'execa';
+import { $, execa, ExecaReturnValue } from 'execa';
 
 type PackageManager = 'bun' | 'npm' | 'pnpm' | 'yarn';
 
@@ -64,10 +64,10 @@ function prettier() {
   installPackages(['@motionhungry/style-policy'], true);
 }
 
-function semanticRelease() {
-  installPackages(['semantic-release'], true);
-  $`npx semantic-release`;
-  $`mkdir -p .github`;
+async function semanticRelease() {
+  await installPackages(['semantic-release'], true);
+  await execa('npx semantic-release');
+  await $`mkdir -p .github`;
   copyTemplateFile('semantic-release/', '.github/');
 }
 
@@ -84,7 +84,7 @@ const templates = {
 
 program
   .command('generate')
-  .argument('<template>', 'the template to generate')
+  .argument('<template>', 'template to generate')
   .action((template: keyof typeof templates) => {
     const generate = templates[template];
     if (generate) {
