@@ -14,8 +14,7 @@
     "list": "./dist/index.js list"
   },
   "bin": {
-    "generate": "./dist/index.js",
-    "list": "./dist/index.js"
+    "@motionhungry/generators": "./dist/index.js"
   },
   "keywords": [],
   "author": "",
