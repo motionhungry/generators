@@ -14,8 +14,8 @@
     "list": "./dist/index.js list"
   },
   "bin": {
-    "generate": "./dist/index.js generate",
-    "list": "./dist/index.js list"
+    "generate": "./dist/index.js",
+    "list": "./dist/index.js"
   },
   "keywords": [],
   "author": "",
